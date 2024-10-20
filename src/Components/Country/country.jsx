@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const Country = ({ country, handleVisitedCountry }) => {
-  // console.log(country);
   const { name, flags, capital, population, region, cca3 } = country;
 
   const [Visited, setVisited] = useState(false);
@@ -9,7 +8,7 @@ const Country = ({ country, handleVisitedCountry }) => {
   const handleVisited = () => {
     setVisited(true);
   };
-  console.log(handleVisitedCountry);
+
   return (
     <div
       style={{
@@ -26,7 +25,12 @@ const Country = ({ country, handleVisitedCountry }) => {
       <h5>Population: {population}</h5>
       <p>Region: {region}</p>
       <p>Code: {cca3}</p>
-      <button onClick={handleVisited}>{Visited ? "Visited" : "Going"}</button>
+      <button onClick={() => handleVisitedCountry(country)}>
+        Mark Countries
+      </button>
+      <button style={{ marginLeft: "15px" }} onClick={handleVisited}>
+        {Visited ? "Visited" : "Going"}
+      </button>
       {/* {Visited && "I have visited this Country."} */}
       {Visited ? "I have visited this Country" : "I want to Visit."}
     </div>
